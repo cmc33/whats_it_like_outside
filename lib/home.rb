@@ -1,9 +1,14 @@
-#require_relative './key.rb'
-require 'pry'
-require 'json'
-require 'open-uri'
-require_relative "../key.rb"
+# #require_relative './key.rb'
+# require 'pry'
+# require 'json'
+# require 'open-uri'
+# require_relative "../key.rb"
+# require 'forecast_io'
+# require_relative 'current.rb'
+require_relative '../config/environment'
+
 class Home
+
  # attr_reader :zip
 
 ZIP_BASE_URL = "https://www.zipcodeapi.com/rest/<api_key>/info.json/<zip_code>/degrees"
@@ -66,12 +71,12 @@ ZIP_BASE_URL = "https://www.zipcodeapi.com/rest/<api_key>/info.json/<zip_code>/d
   geo_data = JSON.load(open("https://www.zipcodeapi.com/rest/#{ZIP_KEY}/info.json/#{@zipcode}/degrees"))
   @latitude = geo_data['lat']
   @longitude = geo_data['lng']
-  binding.pry
+  
   #puts @latitude @longitude
  end
 
  def current_creator(latitude, longitude)
-   current = Current.new(latitude, longitude)
+   Current.new(latitude, longitude)
    #11237_current = Current.new
  end
 
@@ -85,4 +90,3 @@ ZIP_BASE_URL = "https://www.zipcodeapi.com/rest/<api_key>/info.json/<zip_code>/d
 end
 
 
-Home.new
