@@ -1,10 +1,15 @@
-require_relative './key.rb'
+#require_relative './key.rb'
 require 'pry'
-
+require 'json'
+require 'open-uri'
+require_relative "../key.rb"
 class Home
   # attr_reader :zip
 
+ ZIP_BASE_URL = "https://www.zipcodeapi.com/rest/<api_key>/info.json/<zip_code>/degrees"
+
   def initialize
+    
     @zipcode = Integer
     @timespan = ""
     puts 'running'
@@ -54,9 +59,7 @@ class Home
   end
 
   def zip_api_call
-    puts "This will be the api call"
-    @latitude = 'X'
-    @longitude = 'Y'
+    JSON.load(open("https://www.zipcodeapi.com/rest/#{ZIP_KEY}/info.json/#{@zip_code}/degrees"))
     #forecast or current class creator method
   end
 
