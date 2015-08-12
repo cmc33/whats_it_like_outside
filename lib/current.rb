@@ -15,12 +15,13 @@ class Current
   def initialize(latitude, longitude)
     @latitude = latitude
     @longitude = longitude
+    @weather = {}
     forecast
   end
 
   def forecast 
+    @weather = ForecastIO.forecast(@latitude, @longitude)
     binding.pry
-    ForecastIO.forecast(@latitude, @longitude)
   end
 
   
