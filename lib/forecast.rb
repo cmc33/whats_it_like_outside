@@ -16,8 +16,10 @@ class Current
     @latitude = latitude
     @longitude = longitude
     @weather = {}
+    @all_data = {}
     forecast
   end
+
 
   def forecast 
     all_data = ForecastIO.forecast(@latitude, @longitude)
@@ -41,17 +43,5 @@ class Current
     @weather[- currently]
   end
 
-  def wind
-    
-  end
-
-  def temp
-    
-  end
-  def overview
-    rain
-    wind
-    temp
-  end
   
 end

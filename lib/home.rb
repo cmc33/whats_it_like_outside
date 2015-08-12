@@ -24,12 +24,12 @@ ZIP_BASE_URL = "https://www.zipcodeapi.com/rest/<api_key>/info.json/<zipcode>/de
 
  def overview
    #put graphic
-   puts "Welcome... you can do this and that"
+   puts "\n\n Do you really think you're going to go outside today? You are such a neck-beard that you're looking up the weather on your fucking terminal..."
    zip_input
  end
 
  def zip_input
-   puts "What is your fucking 5-digit zipcode"
+   puts "\n\n  Still, I'll humor you. What is your 5-digit zipcode"
    @zipcode = gets.chomp
    zipcode_validation
  end
@@ -38,20 +38,13 @@ ZIP_BASE_URL = "https://www.zipcodeapi.com/rest/<api_key>/info.json/<zipcode>/de
    if @zipcode.size == 5
      zip_api_call 
      timespan_input
-   else puts "You don't know your zipcode. What a loser. You aren't going to go outside anyway. Let's try again."
+   else puts "\n\n You don't know your zipcode. What a loser. Let's try again."
      zip_input
    end
  end
 
  def timespan_input
-   # prompt = rand(1..5)
-   #   case 
-   #   when prompt == 1
-   #     puts "passive aggressive statement"
-   #   when prompt == 2
-   #     puts "something else"   
-   #   end
-   puts "Do you want the weather right now, or the forecast"
+   puts "\n\n Do you want the weather right now, or the forecast. \n It should be obvious, but type 'now' or type 'forecast'"
    @timespan = gets.chomp.downcase.to_s
    timespan_validation
  end
