@@ -23,7 +23,25 @@ ZIP_BASE_URL = "https://www.zipcodeapi.com/rest/<api_key>/info.json/<zipcode>/de
  end
 
  def overview
-   #put graphic
+  puts     "     _____________________ 
+    /                     \\
+    :       WHAT'S        :
+   /          IT           \\
+  /          LIKE           \\
+  \\        OUTSIDE?         /                            
+   \\                       /
+   /                       \\
+   \\________________________/
+    | |  |  /      /  | |  |
+    | |  |  /    /_ _ | |  |
+    | |  |  /___   /  | |  |
+    | |  |    /  /    | |  |
+    | |  |    / /     | |  |
+    | |  |   //       | |  |
+    | |  |  /         | |  |
+
+
+   "
    puts "\n\n Do you really think you're going to go outside today? You are such a neck-beard that you're looking up the weather on your fucking terminal..."
    zip_input
  end

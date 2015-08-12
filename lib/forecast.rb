@@ -41,7 +41,6 @@ class Forecast
     puts @summary
     counter = 0 
     @weather.each do |i|
-      binding.pry
     puts "#{(@now + (@day * counter)).mon} / #{(@now + (@day * counter)).mday}"
     puts "\n"
     puts "Summary: #{i[:summary]}"
@@ -58,14 +57,23 @@ class Forecast
     more_info?
   end
 
-  def more_info?
-    puts "\n \n Sorry for being rude earlier. Do you want more info about these days?"
-    answer = gets.chomp
-    data_dump if answer == 'yes'
-    if answer == 'no'
-      puts "\n \n I wasn't really sorry. I'd ask you to show yourself out, but I don't trust you to know how, so I'll call exit for you"
-      exit
+  def data_dump
+    puts "\n \n What do you think you are? A fucking meteorologist? Have fun with this \n \n"
+    sleep(2)
+    @all_data.each do |i| 
+      sleep(0.1)
+      if i.empty? 
+        i.each do |key|
+          key.each do
+          sleep(0.1)
+          puts key
+        end
+        end
+      end
+      puts i
     end
+      #puts i sleep(0.1)}
+    ultimatum
   end
 
   def data_dump
@@ -83,8 +91,8 @@ class Forecast
     startover if answer == 'again'
   end
 
-  def again
-    again = Home.new
+  def startover
+    startover = Home.new
     again
   end
 
