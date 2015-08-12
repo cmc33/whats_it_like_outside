@@ -26,8 +26,8 @@ class Current
   end
 
   def forecast_getter
-    all_data = ForecastIO.forecast(@latitude, @longitude)
-    @weather = all_data[:currently]
+    @all_data = ForecastIO.forecast(@latitude, @longitude)
+    @weather = @all_data[:currently]
     space(@weather)
 
     more_info?

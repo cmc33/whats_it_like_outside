@@ -60,7 +60,6 @@ ZIP_BASE_URL = "https://www.zipcodeapi.com/rest/<api_key>/info.json/<zipcode>/de
  end
 
  def zip_api_call
-  binding.pry
   geo_data = JSON.load(open("https://www.zipcodeapi.com/rest/#{ZIP_KEY}/info.json/#{@zipcode}/degrees"))
   @latitude = geo_data['lat']
   @longitude = geo_data['lng']
