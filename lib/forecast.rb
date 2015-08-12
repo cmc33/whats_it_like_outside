@@ -17,7 +17,7 @@ class Current
     @longitude = longitude
     @weather = {}
     @all_data = {}
-    forecast
+    forecast_getter
   end
 
 end

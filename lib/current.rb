@@ -9,7 +9,7 @@ class Current
     @longitude = longitude
     @weather = {}
     @all_data = {}
-    forecast
+    forecast_getter
   end
 
   def ultimatum
@@ -25,24 +25,26 @@ class Current
     again
   end
 
-  def forecast 
+  def forecast_getter
     all_data = ForecastIO.forecast(@latitude, @longitude)
     @weather = all_data[:currently]
     space(@weather)
+
+    more_info?
   end
 
   def space(hash)
     hash.keep_if {|key, value| key == "summary" || key == "precipProbability" || key == "temperature" || key == "humidity" || key == "windSpeed" || key == "cloudCover"}
-    puts hash
-    more_info?
+    display
   end
 
-  def rain
-    binding.pry
-    @weather[- currently]
-    @all_data = ForecastIO.forecast(@latitude, @longitude)
-    @weather = @all_data[:currently]
-    puts @weather
+  def display
+    puts "Summary: #{@weather[:summary]}"
+    puts "Chance of Rain: #{@weather[:precipProbability]}"
+    puts "Temperature: #{@weather[:temperature]}"
+    puts "Humidity: #{@weather[:humidity]}"
+    puts "Windspeed #{@weather[:windSpeed]}"
+    puts "Cloud Cover: #{@weather[:cloudCover]}"
     more_info?
   end
 
@@ -64,21 +66,6 @@ class Current
   def exit
     puts "\n \n Good riddance.\n\n"
     Kernel.exit
-
-  end
-
-  def wind
-    
-  end
-
-  def temp
-    
-  end
-  
-  def overview
-    rain
-    wind
-    temp
   end
   
 end
