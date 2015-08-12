@@ -13,7 +13,7 @@ class Current
   end
 
   def ultimatum
-    puts "\n \ nDo you want to start over again, or GTFO of my program? \n
+    puts "\n \n Do you want to start over again, or GTFO of my program? \n
     Type 'again' or 'exit' "
     answer = gets.chomp.downcase
     exit if answer == "exit"
@@ -39,6 +39,7 @@ class Current
   end
 
   def display
+    puts "\n\n"
     puts "Summary: #{@weather[:summary]}"
     puts "Chance of Rain: #{@weather[:precipProbability]}"
     puts "Temperature: #{@weather[:temperature]}"
@@ -61,6 +62,7 @@ class Current
   def data_dump
     puts @all_data
     puts "\n \n What do you think you are? A fucking meteorologist? Have fun with this \n \n"
+    ultimatum
   end
 
   def exit

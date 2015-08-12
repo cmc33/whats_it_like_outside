@@ -17,6 +17,8 @@ class Forecast
     @longitude = longitude
     @weather = {}
     @all_data = {}
+    @now = Time.now
+    @day = 86400
     forecast_getter
   end
 
@@ -36,8 +38,11 @@ class Forecast
   # end
 
   def display
-    puts @summary 
+    puts @summary
+    counter = 0 
     @weather.each do |i|
+      binding.pry
+    puts "#{(@now + (@day * counter)).mon} / #{(@now + (@day * counter)).mday}"
     puts "\n"
     puts "Summary: #{i[:summary]}"
     puts "Chance of Precipitation: #{i[:precipProbability]}"
@@ -47,12 +52,14 @@ class Forecast
     puts "Humidity: #{i[:humidity]}"
     puts "Windspeed #{i[:windSpeed]}"
     puts "Cloud Cover: #{i[:cloudCover]}"
+    puts "\n"
+    counter += 1
     end
     more_info?
   end
 
   def more_info?
-    puts "\n \n Sorry for being rude earlier. Do you want more info about tomorrow?"
+    puts "\n \n Sorry for being rude earlier. Do you want more info about these days?"
     answer = gets.chomp
     data_dump if answer == 'yes'
     if answer == 'no'
@@ -64,11 +71,12 @@ class Forecast
   def data_dump
     puts @all_data
     puts "\n \n What do you think you are? A fucking meteorologist? Have fun with this \n \n"
+    ultimatum
   end
 
 
   def ultimatum
-    puts "\n \ nDo you want to start over again, or GTFO of my program? \n
+    puts "\n \n Do you want to start over again, or GTFO of my program? \n
     Type 'again' or 'exit' "
     answer = gets.chomp.downcase
     exit if answer == "exit"
