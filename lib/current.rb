@@ -20,9 +20,36 @@ class Current
   end
 
   def forecast 
-    @weather = ForecastIO.forecast(@latitude, @longitude)
-    binding.pry
+    all_data = ForecastIO.forecast(@latitude, @longitude)
+    @weather = all_data[:currently]
+    puts @weather
+    space(@weather)
   end
 
+  def space(hash)
+   # hash.keep_if {|key, value| key != "summary" }
+      binding.pry
+    
+    #end 
+      
+  end
+
+  def rain
+    binding.pry
+    @weather[- currently]
+  end
+
+  def wind
+    
+  end
+
+  def temp
+    
+  end
+  def overview
+    rain
+    wind
+    temp
+  end
   
 end

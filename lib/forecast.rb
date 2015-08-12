@@ -22,14 +22,17 @@ class Current
   def forecast 
     all_data = ForecastIO.forecast(@latitude, @longitude)
     @weather = all_data[:currently]
-    puts @weather
+    #puts @weather
     space(@weather)
   end
 
   def space(hash)
-    hash.each do |x|
+    hash.keep_if {|key, value| key == "summary" || key == "precipProbability" || key == "temperature" || key == "humidity" || key == "windSpeed" || key == "cloudCover"}
       binding.pry
-    end 
+    
+    puts "huh"
+    
+
       
   end
 
