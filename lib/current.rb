@@ -26,6 +26,8 @@ class Current
     if answer == 'no'
       puts "\n \n I wasn't really sorry. I'd ask you to show yourself out, but I don't trust you to know how, so I'll call exit for you"
       exit
+    else puts "YES!!! or NO!!!!"
+      more_info?
     end
   end
 

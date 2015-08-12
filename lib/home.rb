@@ -23,7 +23,7 @@ ZIP_BASE_URL = "https://www.zipcodeapi.com/rest/<api_key>/info.json/<zipcode>/de
  end
 
  def overview
-  puts     "     _____________________ 
+  puts     "    _____________________ 
     /                     \\
     :       WHAT'S        :
    /          IT           \\
@@ -72,7 +72,9 @@ ZIP_BASE_URL = "https://www.zipcodeapi.com/rest/<api_key>/info.json/<zipcode>/de
     current_creator(@latitude, @longitude)  
    elsif @timespan == 'forecast'
     forecast_creator(@latitude, @longitude)  
-   else puts #REWRITE You don't know your zipcode. What a loser. You aren't going to go outside anyway. Let's try again."
+   else 
+     puts "I do weather, not natural language processing. Listen to my instructions."
+     sleep(0.5)
      timespan_input
    end
  end

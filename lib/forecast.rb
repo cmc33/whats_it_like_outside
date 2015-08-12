@@ -29,7 +29,6 @@ class Forecast
     @weather = @all_data[:daily][:data]
     # space(@weather)
     display
-    more_info?
   end
 
   # def space(hash)
@@ -57,6 +56,18 @@ class Forecast
     more_info?
   end
 
+  def more_info?
+    puts "\n \n Sorry for being rude earlier. Do you want more info about today's weather?"
+    answer = gets.chomp
+    data_dump if answer == 'yes'
+    if answer == 'no'
+      puts "\n \n I wasn't really sorry. I'd ask you to show yourself out, but I don't trust you to know how, so I'll call exit for you"
+      exit
+    else puts "YES!!! or NO!!!!"
+      more_info?
+    end
+  end
+
   def data_dump
     puts "\n \n What do you think you are? A fucking meteorologist? Have fun with this \n \n"
     sleep(2)
@@ -76,11 +87,6 @@ class Forecast
     ultimatum
   end
 
-  def data_dump
-    puts @all_data
-    puts "\n \n What do you think you are? A fucking meteorologist? Have fun with this \n \n"
-    ultimatum
-  end
 
 
   def ultimatum
